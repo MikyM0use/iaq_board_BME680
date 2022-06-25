@@ -1,1 +1,7 @@
 .vscode
+iaq_board.bin
+secrets.yaml
+wifi_secrets.yaml
+firmware/.gitignore
+firmware/.esphome
+*~
