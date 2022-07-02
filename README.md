@@ -6,8 +6,7 @@
 
 As the name suggest this fork was intially created to integrate a BME680 (instead of BME280) using the BSEC framework (so I removed the compiled version of the firmware as requested by the BOSCH license). Then I modified a lot of other things. Please refer to the original projects for all other details.
 
-   - light sensor is now a TCS34725.
-   - I'm planning to put a 3.3v regulator on the SGP30 place (the BME680 seems to have some problems with the integrated D1 3.3 V regulator)
+   - I'm planning to put a 3.3v regulator (the BME680 seems to have some problems with the integrated D1 3.3 V regulator)
    - The OLED display format and HA entities are modified accordingly to show the additional parameters (expecially the IAQ) from the BSEC library.
    - LEDs are changed to:
      - LED1 IAQ by BOSCH sensor
@@ -57,7 +56,7 @@ Table from the BOSCH datasheet:
 
 ## 7. Ambient Light Sensor
 
-original project used tsl2561 but I usead a [TCS34725] (https://esphome.io/components/sensor/tcs34725.html) almost pin compatile (it requires a bridge between pin 2 and 4).
+Nothing changed here. (I tried a [TCS34725] (https://esphome.io/components/sensor/tcs34725.html) almost pin compatile (it requires a bridge between pin 2 and 4) but at the end the footprint is too different).
 
 ## 8. LEDs
 

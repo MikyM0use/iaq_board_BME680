@@ -387,36 +387,25 @@ sensor:
       uart_id: mh
       id: mh_sensor
       
-    - platform: tcs34725
-      red_channel:
-        name: "TCS34725 Red Channel"
-      green_channel:
-        name: "TCS34725 Green Channel"
-      blue_channel:
-        name: "TCS34725 Blue Channel"
-      clear_channel:
-        name: "TCS34725 Clear Channel"
-      illuminance:
-        name: "TCS34725 Illuminance"
-        id: light_sens
-        on_value:
-          then:
-            - light.control:
-                id: led1
-                brightness: !include includes/brightness.yaml
-            - light.control:
-                id: led2
-                brightness: !include includes/brightness.yaml
-            - light.control:
-                id: led3
-                brightness: !include includes/brightness.yaml
-            - lambda: |-
-                if (id(light_sens).state < 2 && !id(night_mode)) { id(display_on) = false; }
-                else { id(display_on) = true; }
-      color_temperature:
-        name: "TCS34725 Color Temperature"
-      address: 0x29
-      update_interval: 10s
+    - platform: tsl2561
+      name: "Ambient Light"
+      update_interval: 3s
+      id: light_sens
+      address: 0x39
+      on_value:
+        then:
+          - light.control:
+              id: led1
+              brightness: !include includes/brightness.yaml
+          - light.control:
+              id: led2
+              brightness: !include includes/brightness.yaml
+          - light.control:
+              id: led3
+              brightness: !include includes/brightness.yaml
+          - lambda: |-
+              if (id(light_sens).state < 2 && !id(night_mode)) { id(display_on) = false; }
+              else { id(display_on) = true; }
       
 
       
